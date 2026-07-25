@@ -1,5 +1,5 @@
-# Radarr - Movie Collection Manager
-# Automatically searches, downloads, and manages your movie collection
+# Bazarr - Sonarr and Radarr Subtitles Manager
+# Manages and downloads subtitles based on your requirements
 
 services:
   bazarr:
