@@ -2,9 +2,9 @@
 # Automatically searches, downloads, and manages your movie collection
 
 services:
-  radarr:
-    image: lscr.io/linuxserver/radarr:latest
-    container_name: radarr
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -12,9 +12,9 @@ services:
     volumes:
       - ${CONFIG_PATH}:/config
       - ${MOVIES_PATH}:/movies
-      - ${DOWNLOADS_PATH}:/downloads
+      - ${TV_PATH}:/tv
     ports:
-      - "${RADARR_PORT}:7878"
+      - "${BAZARR_PORT}:6767"
     restart: ${RESTART_POLICY}
     networks:
       - arrnetwork
