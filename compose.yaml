@@ -1,0 +1,24 @@
+# Radarr - Movie Collection Manager
+# Automatically searches, downloads, and manages your movie collection
+
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${CONFIG_PATH}:/config
+      - ${MOVIES_PATH}:/movies
+      - ${DOWNLOADS_PATH}:/downloads
+    ports:
+      - "${RADARR_PORT}:7878"
+    restart: ${RESTART_POLICY}
+    networks:
+      - arrnetwork
+
+networks:
+  arrnetwork:
+    external: true
